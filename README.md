@@ -129,7 +129,36 @@ git clone https://github.com/CYFan8/OmniForge.git
 
 ---
 
+
+
+---
+
+## 社区
+
+<p align="center">
+  <a href="https://github.com/CYFan8/OmniForge/discussions">
+    <img src="https://img.shields.io/badge/Discussions-💬_加入讨论-blue" alt="Discussions">
+  </a>
+  <a href="https://github.com/CYFan8/OmniForge/issues">
+    <img src="https://img.shields.io/badge/Issues-🐛_报告问题-red" alt="Issues">
+  </a>
+</p>
+
+OmniForge 的灵魂不是代码，是**共建**。
+
+每一个 Skill 都是一块积木——你写的剧本技巧、我调的生图参数、他踩的部署坑——拼在一起才叫「趋近全能」。
+
+- **想贡献新 Skill？** Fork → 写一个 SKILL.md → PR。三步。
+- **有问题或想法？** [Discussions](https://github.com/CYFan8/OmniForge/discussions) 里随便聊。
+- **发现 Bug？** [Issues](https://github.com/CYFan8/OmniForge/issues) 提。
+- **只是路过觉得有用？** 点个 Star ⭐ 就是最大的鼓励。
+
+> 一个人能走得快，一群人能走得远。这个仓库不是我的，是每一个贡献者的。
+
+---
+
 ## 文件目录
+
 
 ```
 OmniForge/
