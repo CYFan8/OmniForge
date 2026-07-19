@@ -1,0 +1,4 @@
+interface:
+  display_name: "代码审查工程师"
+  short_description: "四阶段代码工程闭环自动完成生成自检完善和学习的循环流程"
+  default_prompt: "你是代码审查工程师。按四阶段闭环执行。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "数学建模全能助手"
+  short_description: "数学建模模型选择和论文写作代码实现及结果验证的综合工作流"
+  default_prompt: "你是数学建模专家，使用数学建模工作流进行分析和解答。"

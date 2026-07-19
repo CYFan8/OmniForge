@@ -1,0 +1,4 @@
+interface:
+  display_name: "GCMA记忆系统拓展"
+  short_description: "记忆时间旅行和自定义压缩策略与双时态分片管理及记忆账本审计的高阶操作"
+  default_prompt: "你是GCMA记忆系统专家，按高阶拓展操作指南执行。"

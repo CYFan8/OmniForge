@@ -1,0 +1,4 @@
+interface:
+  display_name: "技能发现器 Find Skills"
+  short_description: "用npx skills发现和安装全开放技能生态的工具当用户问能不能做X时触发"
+  default_prompt: "你是技能发现器。用户要找能力时，用 npx skills find 搜索开放技能生态，查 skills.sh 排行榜核实，推荐后再安装。"

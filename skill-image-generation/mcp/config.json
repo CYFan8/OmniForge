@@ -1,0 +1,74 @@
+{
+  "name": "image-generation-mcp",
+  "version": "2.0.0",
+  "description": "生图底层强制本地MCP绘图服务，不使用OpenAI图像接口",
+
+  "defaults": {
+    "provider": "sd_webui",
+    "disable_fallback": true,
+    "disable_openai_image_backend": true,
+    "openai_api_key": "",
+    "llm_provider": "",
+    "default_model_provider": ""
+  },
+
+  "tools": {
+    "disable": {
+      "generate_image_openai": true
+    }
+  },
+
+  "mcp_servers": {
+    "local_draw": {
+      "type": "local",
+      "endpoint": "http://127.0.0.1:7861/mcp",
+      "auto_connect": true
+    }
+  },
+
+  "image_route_rule": {
+    "force_mcp_render": true,
+    "allow_cloud_image_fallback": false
+  },
+
+  "bridges": {
+    "stable_diffusion": {
+      "script": "sd_bridge.py",
+      "type": "REST API",
+      "platform": "all",
+      "endpoint": "http://127.0.0.1:7861/mcp",
+      "auto_connect": true,
+      "capabilities": ["txt2img", "img2img", "model_list", "model_switch", "batch_generate"]
+    },
+    "photoshop": {
+      "script": "photoshop_bridge.py",
+      "type": "REST API",
+      "platform": "windows",
+      "endpoint": "http://127.0.0.1:8010/mcp",
+      "auto_connect": false,
+      "capabilities": ["canvas_create", "layer_add", "export_png", "export_jpg", "export_psd", "firefly_prompt"]
+    },
+    "sai": {
+      "script": "sai_bridge.py",
+      "type": "REST API",
+      "platform": "windows",
+      "endpoint": "http://127.0.0.1:8011/mcp",
+      "auto_connect": false,
+      "capabilities": ["prompt_send", "output_list", "preview_extract", "convert_sai2png"]
+    }
+  },
+
+  "routing": {
+    "primary": "stable_diffusion",
+    "fallback_disabled": true,
+    "force_mcp_render": true,
+    "allow_cloud_fallback": false,
+    "priority_order": ["stable_diffusion"]
+  },
+
+  "required_packages": {
+    "stable_diffusion": ["pip install requests Pillow"],
+    "photoshop": ["pip install requests Pillow"],
+    "sai": ["pip install requests Pillow"]
+  }
+}

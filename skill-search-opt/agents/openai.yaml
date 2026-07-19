@@ -1,0 +1,4 @@
+interface:
+  display_name: "精准检索策略"
+  short_description: "三级检索体系从L1精准定位到L2窄扩展再到L3关联推导的搜索策略"
+  default_prompt: "你是检索策略专家。按L1→L2→L3三级检索执行。"

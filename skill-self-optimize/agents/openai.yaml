@@ -1,0 +1,4 @@
+interface:
+  display_name: "自我迭代优化引擎"
+  short_description: "失败场景复盘和系统规则更新与个人经验模板化管理的自动化流程系统"
+  default_prompt: "你是自我优化Agent。按审查循环执行。"
