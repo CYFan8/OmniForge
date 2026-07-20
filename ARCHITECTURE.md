@@ -269,7 +269,7 @@ OmniForge/
  | 系统python损坏 | P0 | PATH中python无声exit code 1 | 统一用Codex runtime python |
  | 混元3D生成未完成 | P0 | 进度条反复重置 | 换多张图片或TripoSR本地 |
  | RAG仅96chunk | P1 | 覆盖面不够 | 逐步爬取更多教程 |
- | 建模包7项未实现 | P1 | 只有文档无代码 | 按优先级逐步实现 |
+ | 建模包14项脚本已实现 | P1 → ✅ | 12个Python脚本已提交 | 见mcp/scripts/ |
  | vision init结构错误 | P2 | 不导qwen_vision函数 | 重构__init__.py |
  | 无自动化测试 | P3 | 全部模块无测试 | 先覆盖MCP桥接 |
  
