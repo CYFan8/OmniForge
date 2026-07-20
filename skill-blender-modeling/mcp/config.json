@@ -1,60 +1,119 @@
 {
-    "name":  "blender_bridge",
-    "version":  "1.0.0",
-    "description":  "Blender Python API MCP Bridge — 远程调度Blender建模/渲染/导出",
-    "blender":  {
-                    "search_paths":  [
-                                         "F:\\steam\\steamapps\\common\\Blender\\blender.exe",
-                                         "C:\\Program Files\\Blender Foundation\\Blender 4.2\\blender.exe",
-                                         "C:\\Program Files\\Blender Foundation\\Blender 4.1\\blender.exe",
-                                         "C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender.exe",
-                                         "D:\\Blender\\blender.exe",
-                                         "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe"
-                                     ],
-                    "fallback_command":  "blender",
-                    "python_path":  null
-                },
-    "render_defaults":  {
-                            "engine":  "CYCLES",
-                            "device":  "GPU",
-                            "resolution_x":  1920,
-                            "resolution_y":  1080,
-                            "resolution_percentage":  100,
-                            "samples":  256,
-                            "denoiser":  "OPENIMAGEDENOISE",
-                            "output_format":  "PNG",
-                            "color_depth":  "16",
-                            "compression":  15
-                        },
-    "eevee_fallback":  {
-                           "samples":  64,
-                           "use_ssr":  true,
-                           "use_sss":  true,
-                           "use_bloom":  false
-                       },
-    "linkage":  {
-                    "script_creation":  {
-                                            "enabled":  false,
-                                            "channel":  "push",
-                                            "source_skill":  "skill-script-creation"
-                                        },
-                    "image_generation":  {
-                                             "enabled":  false,
-                                             "channel":  "push",
-                                             "source_skill":  "skill-image-generation"
-                                         }
-                },
-    "assets":  {
-                   "base_path":  "D:\\ai_skill_lib\\skill-blender-modeling\\references\\assets\\",
-                   "categories":  [
-                                      "materials",
-                                      "models",
-                                      "hdr",
-                                      "presets"
-                                  ]
-               },
-    "logging":  {
-                    "level":  "INFO",
-                    "output":  "skill-system-core"
-                }
+    "name": "blender_bridge",
+    "version": "1.0.0",
+    "description": "Blender Python API MCP Bridge — 远程调度Blender建模/渲染/导出",
+    "blender": {
+        "search_paths": [
+            "F:\\steam\\steamapps\\common\\Blender\\blender.exe",
+            "C:\\Program Files\\Blender Foundation\\Blender 4.2\\blender.exe",
+            "C:\\Program Files\\Blender Foundation\\Blender 4.1\\blender.exe",
+            "C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender.exe",
+            "D:\\Blender\\blender.exe",
+            "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe"
+        ],
+        "fallback_command": "blender",
+        "python_path": null,
+        "scripts_dir": "./scripts/"
+    },
+    "render_defaults": {
+        "engine": "CYCLES",
+        "device": "GPU",
+        "resolution_x": 1920,
+        "resolution_y": 1080,
+        "resolution_percentage": 100,
+        "samples": 256,
+        "denoiser": "OPENIMAGEDENOISE",
+        "output_format": "PNG",
+        "color_depth": "16",
+        "compression": 15
+    },
+    "eevee_fallback": {
+        "samples": 64,
+        "use_ssr": true,
+        "use_sss": true,
+        "use_bloom": false
+    },
+    "linkage": {
+        "script_creation": {
+            "enabled": false,
+            "channel": "push",
+            "source_skill": "skill-script-creation"
+        },
+        "image_generation": {
+            "enabled": false,
+            "channel": "push",
+            "source_skill": "skill-image-generation"
+        }
+    },
+    "assets": {
+        "base_path": "D:\\ai_skill_lib\\skill-blender-modeling\\references\\assets\\",
+        "categories": [
+            "materials",
+            "models",
+            "hdr",
+            "presets"
+        ]
+    },
+    "logging": {
+        "level": "INFO",
+        "output": "skill-system-core"
+    },
+    "capabilities": {
+        "project_init": {
+            "script": "project_init.py",
+            "enabled": true
+        },
+        "basic_modeling": {
+            "script": "basic_modeling.py",
+            "enabled": true
+        },
+        "material_system": {
+            "script": "material_system.py",
+            "enabled": true
+        },
+        "lighting_setup": {
+            "script": "lighting_setup.py",
+            "enabled": true
+        },
+        "camera_setup": {
+            "script": "camera_setup.py",
+            "enabled": true
+        },
+        "render_engine": {
+            "script": "scene_export.py",
+            "enabled": true
+        },
+        "skeleton_rig": {
+            "script": "skeleton_rig.py",
+            "enabled": true
+        },
+        "particle_system": {
+            "script": "particle_system.py",
+            "enabled": true
+        },
+        "storyboard_link": {
+            "script": "storyboard_link.py",
+            "enabled": true
+        },
+        "reference_import": {
+            "script": "reference_import.py",
+            "enabled": true
+        },
+        "batch_render": {
+            "script": "render_queue.py",
+            "enabled": true
+        },
+        "asset_library": {
+            "script": "asset_library.py",
+            "enabled": true
+        },
+        "fallback_degrade": {
+            "script": "fallback_degrade.py",
+            "enabled": true
+        },
+        "export_output": {
+            "script": "scene_export.py",
+            "enabled": true
+        }
+    }
 }

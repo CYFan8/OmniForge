@@ -9,46 +9,46 @@ description: >-
 
 # Blender 3D建模专属拓展包（14项）
 
-## 1. 项目初始化
+ ## 1. 项目初始化 — [scripts/project_init.py](mcp/scripts/project_init.py)
 一键创建标准化Blender工程。自动设置公制单位(m)、渲染器(Cycles GPU优先)、色彩空间(Filmic/AgX)、帧率(24fps)。支持从剧本分镜数据自动生成场景大纲，导入生图模块输出的角色/场景参考图到视图背景。
 
-## 2. 基础建模
+ ## 2. 基础建模 — [scripts/basic_modeling.py](mcp/scripts/basic_modeling.py)
 Polygon/SubD/NURBS三套建模管线。覆盖Edit Mode操作(挤出/倒角/环切/桥接)、常用修改器堆栈(Mirror/Subdivision/Solidify/Boolean/Array)、曲线建模(路径/文本/轮廓倒角)。支持从参考图半自动拓扑重建。
 
-## 3. 材质系统
+ ## 3. 材质系统 — [scripts/material_system.py](mcp/scripts/material_system.py)
 基于Principled BSDF的PBR材质工作流。Shader Editor节点编辑(Noise/Voronoi/Gradient/Mix)、支持2K/4K PBR贴图集(Base Color/Roughness/Normal/Metallic/AO)自动关联、玻璃/金属/SSS皮肤/布料预设材质库。联动生图模块提取的配色数据统一材质色温。
 
-## 4. 灯光系统
+ ## 4. 灯光系统 — [scripts/lighting_setup.py](mcp/scripts/lighting_setup.py)
 三点布光(Key/Fill/Rim)自动搭建、HDRI环境光一键加载(Poly Haven集成)、IES灯光配置文件支持。按分镜氛围描述自动调节色温/强度/角度。支持Cycles Light Tree加速多灯场景。
 
-## 5. 摄像机与构图
+ ## 5. 摄像机与构图 — [scripts/camera_setup.py](mcp/scripts/camera_setup.py)
 多摄像机预设(广角24mm/标准50mm/长焦135mm)、景深(DOF)自动对焦、安全框/三分线构图辅助。支持从剧本分镜文本自动设置摄像机位置、焦距、F-stop。多机位一键切换与批量渲染。
 
-## 6. 渲染引擎
+ ## 6. 渲染引擎 — [scripts/scene_export.py](mcp/scripts/scene_export.py)
 Cycles GPU路径追踪(生产级质量)与Eevee实时渲染(预览/降级)双引擎切换。自适应采样+降噪(OpenImageDenoise/OptiX)、AOV分通道输出(漫射/高光/阴影/Z深度/加密)。支持EXR多层格式用于后期合成。
 
-## 7. 骨骼动画
+ ## 7. 骨骼动画 — [scripts/skeleton_rig.py](mcp/scripts/skeleton_rig.py)
 骨架(Armature)快速搭建(人体/四足/翅膀预设)、自动蒙皮(With Automatic Weights)、IK/FK约束链、关键帧动画与曲线编辑器(Graph Editor)调优。支持Mixamo兼容骨架导出与动作重定向。
 
-## 8. 粒子与物理
+ ## 8. 粒子与物理 — [scripts/particle_system.py](mcp/scripts/particle_system.py)
 毛发粒子系统(Hair/毛发节点调参)、布料模拟(Cloth+碰撞体)、刚体/软体物理、流体模拟(Mantaflow)。按角色设定自动生成匹配发型/毛发，场景道具添加物理碰撞属性。
 
-## 9. 分镜联动
+ ## 9. 分镜联动 — [scripts/storyboard_link.py](mcp/scripts/storyboard_link.py)
 接收剧本模块(skill-script-creation)推送的分镜数据。自动解析场景描述→搭建场景Layout(地形/建筑/道具占位)、人物站位标记、摄像机机位预设。支持增量更新：分镜修改→场景同步。
 
-## 10. 参考图联动
+ ## 10. 参考图联动 — [scripts/reference_import.py](mcp/scripts/reference_import.py)
 接收生图模块(skill-image-generation)输出的角色设定图/场景概念图。自动导入Blender作为视图参考(Image as Plane/Empty)、按正交视图对齐(前/侧/顶/透)。支持多版本参考图切换对比。
 
-## 11. 批量渲染
+ ## 11. 批量渲染 — [scripts/scene_export.py](mcp/scripts/scene_export.py) + [mcp/render_queue.py](mcp/render_queue.py)
 多镜头/多角度/多分辨率一键批量渲染。从分镜数据自动生成渲染队列，统一输出路径+命名规则(ep01_sc03_cam01_####.png)。支持渲染农场分片(多Blender实例并行)、断点续渲。
 
-## 12. 资产库
+ ## 12. 资产库 — [scripts/asset_library.py](mcp/scripts/asset_library.py)
 材质库(金属/玻璃/木材/布料/皮肤预置)、模型库(基础几何体/家具/植被/角色基础网格)、场景预设(室内/室外/工作室三套模板)。一键调用+参数微调，避免从零搭建。资产文件统一存放在`references/assets/`。
 
-## 13. 高负载降级
+ ## 13. 高负载降级 — [scripts/fallback_degrade.py](mcp/scripts/fallback_degrade.py)
 算力不足时自动降级策略。步骤细化：优先切换Eevee预览→降低Cycles采样数→关闭细分曲面→用低模替代高模→关闭全局光照。保底始终可导出基础3D场景不崩溃。联动skill-system-core弹性Token管控制。
 
-## 14. 联动接口
+ ## 14. 联动接口 — [mcp/blender_bridge.py](mcp/blender_bridge.py) (全局调度入口)
 仅联动通道开启后激活。接收剧本模块推送的分镜文本/人物设定参数/场景光影氛围描述；接收生图模块推送的角色参考图/场景概念图/配色数据。输出：渲染帧序列/材质预设/3D场景文件(.blend)回传给资产库归档。
 
 ---
