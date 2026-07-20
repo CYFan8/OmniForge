@@ -1,7 +1,7 @@
-# OmniForge 全套模块化 Skill 总文档 v2.0
+ # OmniForge 全套模块化 Skill 总文档 v2.1
 
-> 生成时间: 2026-07-20
-> 状态: 全模块就绪 — 4 组拓展包 + 自主学习核心 + GPU Server 运行中
+ > 生成时间: 2026-07-20（v2.1 更新: 2026-07-20 晚）
+ > 状态: 全模块就绪 — 4 组拓展包 + 自主学习核心 + GPU Server + Qwen生图/视觉管线
 
 ---
 
@@ -177,15 +177,22 @@ skill-model-scoring (评分)
 
 | 组件 | 状态 | 详情 |
 |------|------|------|
-| GPU Server | 运行中 | :7861, Deliberate v2 |
-| SD 1.5 模型 | 已部署 | 4GB, 写实向 |
+ | GPU Server | 运行中 | :7861, Deliberate v2 + Qwen备用 |
+ | SD 1.5 模型 | 已部署 | 4GB, 写实向 |
 | Deliberate v2 模型 | 已部署 | 2GB, 写实+二次元 |
 | Blender 5.1.2 | 运行中 | Steam, RTX 4060 CUDA+OptiX |
 | MCP Router (生图) | 就绪 | 自动检测/路由 |
 | MCP Bridge (Blender) | 运行中 | bpy 调度核心，测试通过 |
 | SAI Bridge | 就绪 | 文件系统中转 |
 | PS Bridge | 不可用 | 破解版 COM 缺失 |
-| 4 组拓展包 | 全部就绪 | 剧本/生图/建模/自主学习 |
+ | 4 组拓展包 | 全部就绪 | 剧本/生图/建模/自主学习 |
+ | Qwen 生图管线 | 已验证 | wan2.6-t2i, 狐狸四视图 1440x1440 |
+ | Qwen 视觉分析 | 已验证 | qwen-vl-plus, 渲染图比例/材质分析 |
+ | RAG 知识库索引 | 就绪 | 96 chunks, 4分区 (sqlite3) |
+ | Kurtips 课程学习 | 已入库 | 4节字幕(12万+字符), kb_blender/ |
+ | Playwright 浏览器 | 已安装 | chromium-1228 |
+ | 混元3D网页 | 已登录可用 | 图生3D上传已验证 |
+ | 狐狸建模参考图集 | 已生成 | 四视图/正面/侧面 |
 | 知识库 | 就绪 | 4 库 RAG 可检索 |
 
 ---
@@ -246,7 +253,27 @@ OmniForge/
 
 ## 版本变更
 
-### v2.0 (2026-07-20)
+ ### v2.1 (2026-07-20 晚)
+ - 新增: Qwen 生图管线 — wan2.6-t2i + qwen-vl-plus 视觉分析
+ - 新增: vision/ 引擎 — 千问视觉分析模块，渲染图质量评估/建模反馈
+ - 新增: RAG 索引 — 96 chunks, 4分区向量化检索 (MiniLM-L6-v2)
+ - 新增: Kurtips 课程学习 — 4节字幕(12万+字符)入库 kb_blender
+ - 新增: Playwright 浏览器自动化 — 混元3D网页登录验证
+ - 新增: 狐狸建模参考图集 — 千问生成四视图/正面/侧面
+ - 新增: Daily log 系统 + .gitignore
+ - 待完善: 混元3D生成未跑通, 系统python损坏, RAG仅96chunk
+ 
+ **v2.1 已知道缺陷:**
+ | 缺陷 | 严重度 | 原因 | 方案 |
+ |------|-------|------|------|
+ | 系统python损坏 | P0 | PATH中python无声exit code 1 | 统一用Codex runtime python |
+ | 混元3D生成未完成 | P0 | 进度条反复重置 | 换多张图片或TripoSR本地 |
+ | RAG仅96chunk | P1 | 覆盖面不够 | 逐步爬取更多教程 |
+ | 建模包7项未实现 | P1 | 只有文档无代码 | 按优先级逐步实现 |
+ | vision init结构错误 | P2 | 不导qwen_vision函数 | 重构__init__.py |
+ | 无自动化测试 | P3 | 全部模块无测试 | 先覆盖MCP桥接 |
+ 
+ ### v2.0 (2026-07-20)
 - 新增: 拓展包 3 — Blender三维建模（14 Skills + MCP bpy桥接）
 - 新增: 拓展包 4 — 自主学习拓展包（8 Skills + 自适应扩容机制）
 - 更新: 全局设置模块 → 新增Context路由切换、跨大模型兼容、软件安全下载引导
