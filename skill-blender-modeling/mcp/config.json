@@ -1,0 +1,60 @@
+{
+    "name":  "blender_bridge",
+    "version":  "1.0.0",
+    "description":  "Blender Python API MCP Bridge — 远程调度Blender建模/渲染/导出",
+    "blender":  {
+                    "search_paths":  [
+                                         "F:\\steam\\steamapps\\common\\Blender\\blender.exe",
+                                         "C:\\Program Files\\Blender Foundation\\Blender 4.2\\blender.exe",
+                                         "C:\\Program Files\\Blender Foundation\\Blender 4.1\\blender.exe",
+                                         "C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender.exe",
+                                         "D:\\Blender\\blender.exe",
+                                         "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe"
+                                     ],
+                    "fallback_command":  "blender",
+                    "python_path":  null
+                },
+    "render_defaults":  {
+                            "engine":  "CYCLES",
+                            "device":  "GPU",
+                            "resolution_x":  1920,
+                            "resolution_y":  1080,
+                            "resolution_percentage":  100,
+                            "samples":  256,
+                            "denoiser":  "OPENIMAGEDENOISE",
+                            "output_format":  "PNG",
+                            "color_depth":  "16",
+                            "compression":  15
+                        },
+    "eevee_fallback":  {
+                           "samples":  64,
+                           "use_ssr":  true,
+                           "use_sss":  true,
+                           "use_bloom":  false
+                       },
+    "linkage":  {
+                    "script_creation":  {
+                                            "enabled":  false,
+                                            "channel":  "push",
+                                            "source_skill":  "skill-script-creation"
+                                        },
+                    "image_generation":  {
+                                             "enabled":  false,
+                                             "channel":  "push",
+                                             "source_skill":  "skill-image-generation"
+                                         }
+                },
+    "assets":  {
+                   "base_path":  "D:\\ai_skill_lib\\skill-blender-modeling\\references\\assets\\",
+                   "categories":  [
+                                      "materials",
+                                      "models",
+                                      "hdr",
+                                      "presets"
+                                  ]
+               },
+    "logging":  {
+                    "level":  "INFO",
+                    "output":  "skill-system-core"
+                }
+}

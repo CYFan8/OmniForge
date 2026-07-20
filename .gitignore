@@ -1,45 +1,19 @@
-# Models (too large for GitHub)
-*.safetensors
-*.ckpt
-*.pt
-*.pth
-*.bin
-models/
+﻿# Database
+rag_index.db
+*.db
 
-# Python
+# Environment files
+.env
+**/.env
+
+# Python cache
 __pycache__/
 *.pyc
-*.pyo
-venv/
-*.egg-info/
-dist/
-build/
-site-packages/
 
-# IDE
-.vscode/
-.idea/
-*.suo
-*.user
+# Temp files
+*.tmp
+D:\work\
 
 # OS
-.DS_Store
 Thumbs.db
-
-# Personal config
-.env
-system-config.yaml
-
-# Logs
-*.log
-hit-rate.log
-
-# Temp
-*.tmp
-*.temp
-SAI_Work/
-outputs/
-generated_images/
-
-# Dependencies
-node_modules/
+.DS_Store
