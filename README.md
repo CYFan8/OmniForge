@@ -4,9 +4,9 @@
 > 趋近全能的 AI 技能共同体 — 四层架构，开源共建。
 
 <p align="center">
- <img src="https://img.shields.io/badge/version-v2.1-blue" alt="version">
+ <img src="https://img.shields.io/badge/version-v2.2-blue" alt="version">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="license">
- <img src="https://img.shields.io/badge/skills-5%20core%20%2B%204%20extensions%20%2B%20Qwen-orange" alt="skills">
+ <img src="https://img.shields.io/badge/skills-5%20core%20%2B%205%20extensions%20%2B%20Qwen%20%2B%20RAG%20%2B%20Vision-orange" alt="skills">
  <img src="https://img.shields.io/badge/GPU-RTX%204060-brightgreen" alt="GPU">
  <img src="https://img.shields.io/badge/Browser-Playwright%201228-blueviolet" alt="playwright">
 </p>
@@ -204,7 +204,7 @@ OmniForge/
 ├── JOURNEY.md              ← 开发历程 + 23 个坑
 ├── CONTRIBUTING.md         ← 共建指南
 ├── CHANGELOG.md            ← 版本更新日志
- ├── VERSION                 ← v2.1
+ ├── VERSION                 ← v2.2
 ├── .gitignore
 │
 ├── system-global-settings/ ← L1: 全局设置
@@ -281,7 +281,28 @@ MIT — 拿去用，改，分发。希望你觉得有用时也贡献回来。
  
  每日工作记录在 [`logs/`](logs/) 目录下。
  
- ### 2026-07-20 — v2.1 建模拓展包 + 自主学习 + Qwen管线
+ 
+### 2026-07-22 — v2.2 技能RAG搜索 + text-to-3d + 视觉三合一 + AI全栈环境
+
+**新增技能包：**
+- `skill-text-to-3d` — 文字→三视图→3D 建模完整工作流（DeepSeek 润色 + 通义万相/千问出图 + 混元3D/备选建模）
+- `codex-tools` 独立仓库 — 技能索引 RAG 搜索、FastAPI 聊天服务器、前端页面
+- `vision-system` — 视觉三合一：Computer Use（截图看屏）+ Ollama moondream（本地看图）+ 云端 API（待配置）
+
+**工程：**
+- RAG 搜索系统上线（DeepSeek 语义匹配），27 个语义块覆盖全部技能
+- Ollama v0.32.1 安装 + moondream 1.7GB 视觉模型部署验证通过（8秒识别图片）
+- DeepSeek API + FastAPI 流式后端 + 前端聊天页面全链路打通
+- GitHub 双仓库推送：github.com/CYFan8/codex-tools + OmniForge
+
+**学习：**
+- Codex 必装十大 Skills（Superpowers / SuperClaude / MiniMax / Anthropic Official 等）
+- 3 个 DeepSeek V4 Skills 合集站（146万开源仓库 / Skills Store / 排行榜）
+- 抖音视频内容读取验证通过（页面文字提取）
+
+完整日志：[logs/2026-07-22.md](logs/2026-07-22.md)
+
+### 2026-07-20 — v2.1 建模拓展包 + 自主学习 + Qwen管线
  
  **新增拓展包：**
  - `skill-blender-modeling` — Blender 3D 建模，14 项能力 + MCP bpy 桥接
